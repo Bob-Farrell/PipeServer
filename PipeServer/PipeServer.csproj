@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))App</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE,NoUnsafe</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE,NoUnsafe</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_save\**" />
+    <EmbeddedResource Remove="_save\**" />
+    <None Remove="_save\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IAScienceLib\IAScienceLib.csproj" />
+  </ItemGroup>
+
+</Project>
