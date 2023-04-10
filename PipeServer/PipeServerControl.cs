@@ -41,7 +41,7 @@ namespace PipeServerApp {
 			pipeNameTextBox.TextChanged += PipeNameTextBox_TextChanged;
 			startServerButton.Click += StartServerButton_Click;
 
-			bool b = Directory.Exists("C:\\Users\\bobfarrell") || Directory.Exists("C:\\Users\\bob.farrell");
+			bool b = false;// Directory.Exists("C:\\Users\\bobfarrell") || Directory.Exists("C:\\Users\\bob.farrell");
 			openClientButton.Visible = closeClientButton.Visible = writeClientButton.Visible = b;
 
 			openClientButton.Click += OpenClientButton_Click;

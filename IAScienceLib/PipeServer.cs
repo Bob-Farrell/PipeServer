@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -73,7 +75,33 @@ namespace IAScience
 						}
 
 					try {
-						server = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+						//var sid = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+						//var account = (NTAccount)sid.Translate(typeof(NTAccount));
+						//var rule = new PipeAccessRule(
+						//	account.ToString(),
+						//	PipeAccessRights.FullControl,
+						//	AccessControlType.Allow);
+						//PipeSecurity pipeSecurity = new PipeSecurity();
+						//pipeSecurity.AddAccessRule(rule);
+
+						//PipeSecurity pipeSecurity = new PipeSecurity();
+						//pipeSecurity.AddAccessRule(new PipeAccessRule("Users", PipeAccessRights.ReadWrite | PipeAccessRights.CreateNewInstance, AccessControlType.Allow));
+						//pipeSecurity.AddAccessRule(new PipeAccessRule("CREATOR OWNER", PipeAccessRights.FullControl, AccessControlType.Allow));
+						//pipeSecurity.AddAccessRule(new PipeAccessRule("SYSTEM", PipeAccessRights.FullControl, AccessControlType.Allow));
+						////ps.AddAccessRule(pa);
+
+						//PipeSecurity pipeSecurity = new PipeSecurity();
+						//pipeSecurity.AddAccessRule(new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null),
+						//	PipeAccessRights.ReadWrite | PipeAccessRights.CreateNewInstance, AccessControlType.Allow));
+						//pipeSecurity.AddAccessRule(new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.CreatorOwnerSid, null),
+						//  PipeAccessRights.FullControl, AccessControlType.Allow));
+						//pipeSecurity.AddAccessRule(new PipeAccessRule(new SecurityIdentifier(WellKnownSidType.LocalSystemSid, null),
+						//  PipeAccessRights.FullControl, AccessControlType.Allow));
+
+						server = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, 
+							PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+						//server.SetAccessControl(pipeSecurity);
+
 						reader = new StreamReader(server);
 
 						DebugOutput($"Communication pipe server waiting for connection on {pipeName}");

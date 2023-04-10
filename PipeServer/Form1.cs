@@ -14,6 +14,7 @@ namespace PipeServerApp {
 		public Form1()
 			{
 			InitializeComponent();
+
 			m_Config = new PipeServerConfig();
 			LoadConfig();
 
@@ -36,7 +37,7 @@ namespace PipeServerApp {
 			startServerButton.Click += StartServerButton_Click;
 
 			bool b = Directory.Exists("C:\\Users\\bobfarrell") || Directory.Exists("C:\\Users\\bob.farrell");
-			openClientButton.Visible = closeClientButton.Visible = writeClientButton.Visible = b;
+            openClientButton.Visible = closeClientButton.Visible = writeClientButton.Visible = false;// b;
 			}
 		private void SaveConfig()
 			{

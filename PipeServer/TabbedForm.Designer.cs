@@ -43,7 +43,7 @@
 			this.pipeServerTabs.Location = new System.Drawing.Point(12, 45);
 			this.pipeServerTabs.Name = "pipeServerTabs";
 			this.pipeServerTabs.SelectedIndex = 0;
-			this.pipeServerTabs.Size = new System.Drawing.Size(645, 544);
+			this.pipeServerTabs.Size = new System.Drawing.Size(585, 544);
 			this.pipeServerTabs.TabIndex = 0;
 			// 
 			// tabPage1
@@ -51,7 +51,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 24);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(637, 516);
+			this.tabPage1.Size = new System.Drawing.Size(577, 516);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "tabPage1";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -90,12 +90,12 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(669, 601);
+			this.ClientSize = new System.Drawing.Size(609, 601);
 			this.Controls.Add(this.deleteButton);
 			this.Controls.Add(this.newTabButton);
 			this.Controls.Add(this.pipeServerTabs);
 			this.Name = "TabbedForm";
-			this.Text = "TabbedForm";
+			this.Text = "Pipe Server";
 			this.pipeServerTabs.ResumeLayout(false);
 			this.ResumeLayout(false);
 
